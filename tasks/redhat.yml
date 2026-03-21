@@ -1,5 +1,6 @@
 ---
-- name: Configure yum repositories
+
+- name: Configure yum repository
   ansible.builtin.yum_repository:
     name: grafana
     description: "Grafana Packages"

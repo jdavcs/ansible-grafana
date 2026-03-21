@@ -1,5 +1,15 @@
 ---
 
+- name: Configure apt repository
+  ansible.builtin.deb822_repository:
+    name: grafana
+    types: deb
+    uris: https://apt.grafana.com
+    suites: stable
+    components: main
+    signed_by: https://apt.grafana.com/gpg.key
+    state: present
+
 - name: Install Grafana
   ansible.builtin.apt:
     name: grafana
