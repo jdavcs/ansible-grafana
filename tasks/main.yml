@@ -19,13 +19,11 @@
 
 - name: Copy Grafana configs
   ansible.builtin.template:
-    src: "{{ item }}.j2"
-    dest: "{{ grafana_conf_dir }}/{{ item }}"
+    src: "grafana.ini.j2"
+    dest: "{{ grafana_conf_dir }}/grafana.ini"
     # group: "{{ stats_grafana_group | default(omit) }}"  # TODO do we need this? If yes, what about # influxdb???
     mode: "0640"
     backup: "{{ grafana_backup_configs }}"
-  loop:
-    - grafana.ini
   notify:
     - Restart grafana
 
