@@ -1,4 +1,5 @@
 ---
+
 - name: Include install tasks
   ansible.builtin.include_tasks: "{{ ansible_facts['os_family'] | lower }}.yml"
 
