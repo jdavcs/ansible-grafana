@@ -1,0 +1,7 @@
+---
+
+- name: Install Grafana
+  ansible.builtin.apt:
+    name: grafana
+    state: "{{ 'latest' if grafana_upgrade else 'present' }}"
+    update_cache: true

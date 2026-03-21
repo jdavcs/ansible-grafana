@@ -1,0 +1,16 @@
+---
+- name: Configure yum repositories
+  ansible.builtin.yum_repository:
+    name: grafana
+    description: "Grafana Packages"
+    baseurl: "https://rpm.grafana.com"
+    gpgkey:  "https://rpm.grafana.com/gpg.key"
+    gpgcheck: yes
+    enabled: yes
+    protect: yes
+
+- name: Install Grafana
+  ansible.builtin.yum:
+    name: grafana
+    state: "{{ 'latest' if grafana_upgrade else 'present' }}"
+    update_cache: true
