@@ -13,11 +13,11 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 - add defaults 
 
 - `grafana_upgrade`: Description. Default: `false`
-- `grafana_service_name`: Description. Default: `influxdb`
+- `grafana_service_name`: Description. `grafana-server`
 - `grafana_backup_configs`: Description. Default: `false`
-- `grafana_conf_dir`: Description. Default: `/etc/influxdb`
-- `grafana_data_dir`: Description. Default: `/var/lib/influxdb`
-- `grafana_log_dir`: Description. Default: `/var/lib/influxdb`
+- `grafana_conf_dir`: Description. Default: `/etc/grafana`
+- `grafana_data_dir`: Description. Default: `/var/lib/grafana`
+- `grafana_log_dir`: Description. Default: `/var/lib/grafana`
 - `grafana_user`: Description.
 - `grafana_conf_root_url`: required
 - `grafana_admin_user`: required
