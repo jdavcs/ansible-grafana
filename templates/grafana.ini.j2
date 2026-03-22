@@ -56,7 +56,7 @@ domain = {{ grafana_domain_name }}
 
 # The full public facing url you use in browser, used for redirects and emails
 # If you use reverse proxy and sub path specify full url (with sub path)
-root_url = "{{ grafana_conf_root_url | default('%(protocol)s://%(domain)s:%(http_port)s/') }}"
+root_url = "{{ grafana_root_url | default('%(protocol)s://%(domain)s:%(http_port)s/') }}"
 
 # Serve Grafana from subpath specified in `root_url` setting. By default it is set to `false` for compatibility reasons.
 ;serve_from_sub_path = false
@@ -700,19 +700,19 @@ allow_sign_up = false
 [auth.github]
 ;name = GitHub
 ;icon = github
-enabled = {{ "true" if grafana_conf_auth_github is defined and grafana_conf_auth_github else "false" }}
-allow_sign_up = {{ "true" if grafana_conf_auth_github is defined and grafana_conf_auth_github else "false" }}
+enabled = {{ "true" if grafana_auth_github is defined and grafana_auth_github else "false" }}
+allow_sign_up = {{ "true" if grafana_auth_github is defined and grafana_auth_github else "false" }}
 ;auto_login = false
-client_id = {{ grafana_conf_auth_github_client_id | default("some_id") }}
-client_secret = {{ grafana_conf_auth_github_client_secret | default("some_secret") }}
+client_id = {{ grafana_auth_github_client_id | default("some_id") }}
+client_secret = {{ grafana_auth_github_client_secret | default("some_secret") }}
 ;scopes = user:email,read:org
 ;auth_url = https://github.com/login/oauth/authorize
 ;token_url = https://github.com/login/oauth/access_token
 ;api_url = https://api.github.com/user
 ;signout_redirect_url =
 ;allowed_domains =
-team_ids = {{ grafana_conf_auth_github_team_ids | default([]) | join(",") }}
-allowed_organizations = {{ grafana_conf_auth_github_allowed_organizations | default([]) | join(" ") }}
+team_ids = {{ grafana_auth_github_team_ids | default([]) | join(",") }}
+allowed_organizations = {{ grafana_auth_github_allowed_organizations | default([]) | join(" ") }}
 ;role_attribute_path =
 ;role_attribute_strict = false
 ;org_mapping =
@@ -1101,15 +1101,15 @@ skip_org_role_sync = true
 
 #################################### SMTP / Emailing ##########################
 [smtp]
-enabled = {{ "false" if grafana_conf_email_host is not defined else "true" }}
-host = {{ grafana_conf_email_host | default('localhost:25') }}
+enabled = {{ "false" if grafana_email_host is not defined else "true" }}
+host = {{ grafana_email_host | default('localhost:25') }}
 ;user =
 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
 ;password =
 ;cert_file =
 ;key_file =
 ;skip_verify = false
-from_address = {{ grafana_conf_email_from | default('stats@' ~ inventory_hostname) }}
+from_address = {{ grafana_email_from | default('stats@' ~ inventory_hostname) }}
 ;from_name = Grafana
 # EHLO identity in SMTP dialog (defaults to instance_name)
 ;ehlo_identity = dashboard.example.com

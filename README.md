@@ -1,51 +1,50 @@
--- this readme is a draft --
-
 # Grafana
 
-Ansible role for installing and configuring Grafana.
+Ansible role for installing and configuring Grafana. Intended primarily for use with a Galaxy installation.
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+TODO
 
 ## Role Variables
 
-- add defaults 
 
-- `grafana_upgrade`: Description. Default: `false`
-- `grafana_service_name`: Description. `grafana-server`
-- `grafana_backup_configs`: Description. Default: `false`
-- `grafana_conf_dir`: Description. Default: `/etc/grafana`
-- `grafana_data_dir`: Description. Default: `/var/lib/grafana`
-- `grafana_log_dir`: Description. Default: `/var/lib/grafana`
-- `grafana_user`: Description.
-- `grafana_conf_root_url`: required
-- `grafana_admin_user`: required
-- `grafana_admin_pass`: required
-- `grafana_secret_key`: required
-- `grafana_domain_name`: required
-- `grafana_conf_auth_github`: Description.
-- `grafana_conf_auth_github_client_id`: Description.
-- `grafana_conf_auth_github_client_secret`: Description.
-- `grafana_conf_auth_github_team_ids`: Description.
-- `grafana_conf_auth_github_allowed_organizations`: Description.
-- `grafana_conf_email_host`: Description.
-- `grafana_conf_email_from`: Description.
+
+| variable | default | required |
+|:---|:---|:---:|
+| grafana_service_name | `grafana-server` ||
+| grafana_upgrade | `false` ||
+| grafana_backup_configs | `false` ||
+| grafana_conf_dir | `/etc/grafana` ||
+| grafana_data_dir | `/var/lib/grafana`
+| grafana_log_dir | `/var/lib/grafana`
+| grafana_user |||
+| grafana_domain_name || yes |
+| grafana_root_url || yes |
+| grafana_admin_user || yes |
+| grafana_admin_pass || yes |
+| grafana_secret_key || yes |
+| grafana_auth_github |||
+| grafana_auth_github_client_id |||
+| grafana_auth_github_client_secret |||
+| grafana_auth_github_team_ids |||
+| grafana_auth_github_allowed_organizations |||
+| grafana_email_host |||
+| grafana_email_from |||
+| grafana_plugins |||
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+TODO
 
-Example Playbook
-----------------
+## Example Playbook
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```
+- hosts: servers
+  roles:
+     - role: jdavcs.grafana
+```
 
-    - hosts: servers
-      roles:
-         - role: jdavcs.grafana
-
-License
--------
+## License
 
 [MIT](LICENSE)
