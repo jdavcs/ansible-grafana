@@ -1109,7 +1109,7 @@ host = {{ grafana_email_host | default('localhost:25') }}
 ;cert_file =
 ;key_file =
 ;skip_verify = false
-from_address = {{ grafana_email_from | default('stats@' ~ inventory_hostname) }}
+from_address = {{ grafana_email_from | default('admin@grafana.localhost') }}
 ;from_name = Grafana
 # EHLO identity in SMTP dialog (defaults to instance_name)
 ;ehlo_identity = dashboard.example.com
