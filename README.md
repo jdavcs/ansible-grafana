@@ -2,13 +2,7 @@
 
 Ansible role for installing and configuring Grafana. Intended primarily for use with a Galaxy installation.
 
-## Requirements
-
-TODO
-
 ## Role Variables
-
-
 
 | variable | default | required |
 |:---|:---|:---:|
@@ -35,7 +29,11 @@ TODO
 
 ## Dependencies
 
-TODO
+This role requires the [community.grafana](https://galaxy.ansible.com/ui/repo/published/community/grafana/) collection. To install:
+
+```
+ansible-galaxy collection install -r requirements.yml
+```
 
 ## Example Playbook
 
