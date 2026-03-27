@@ -6,7 +6,6 @@ Ansible role for installing and configuring Grafana. Intended primarily for use 
 
 | variable | default | required |
 |:---|:---|:---:|
-| grafana_service_name | `grafana-server` ||
 | grafana_upgrade | `false` ||
 | grafana_backup_configs | `false` ||
 | grafana_conf_dir | `/etc/grafana` ||
