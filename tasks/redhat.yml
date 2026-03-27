@@ -5,13 +5,13 @@
     name: grafana
     description: "Grafana Packages"
     baseurl: "https://rpm.grafana.com"
-    gpgkey:  "https://rpm.grafana.com/gpg.key"
-    gpgcheck: yes
-    enabled: yes
-    protect: yes
+    gpgkey: "https://rpm.grafana.com/gpg.key"
+    gpgcheck: true
+    enabled: true
+    protect: true
 
 - name: Install Grafana
-  ansible.builtin.yum:
+  ansible.builtin.yum:  # noqa: fqcn[action-core]
     name: grafana
     state: "{{ 'latest' if grafana_upgrade else 'present' }}"
     update_cache: true
