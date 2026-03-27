@@ -1,5 +1,15 @@
 ---
 
+- name: Verify required variables are defined
+  ansible.builtin.assert:
+    that:
+      - grafana_admin_user is defined
+      - grafana_admin_pass is defined
+      - grafana_secret_key is defined
+      - grafana_conf_root_url is defined
+      - grafana_domain_name is defined
+    fail_msg: "Required variable is not defined. See role documentation for required variables."
+
 - name: Include install tasks
   ansible.builtin.include_tasks: "{{ ansible_facts['os_family'] | lower }}.yml"
 
