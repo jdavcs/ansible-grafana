@@ -12,6 +12,7 @@ Ansible role for installing and configuring Grafana. Intended primarily for use 
 | grafana_data_dir | `/var/lib/grafana` ||
 | grafana_log_dir | `/var/log/grafana` ||
 | grafana_user |||
+| grafana_group |||
 | grafana_domain_name || yes |
 | grafana_root_url | protocol + domain name + port ||
 | grafana_admin_user || yes |
